@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TrioMobileInternProject</string>
+    <string name="api_url">https://jsonplaceholder.typicode.com/users</string>
+</resources>
