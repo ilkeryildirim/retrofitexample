@@ -1,6 +1,5 @@
-package com.dev.ilkeryildirim.triomobileinternproject.Models;
+package com.dev.ilkeryildirim.triomobileinternproject.Model;
 
-import com.dev.ilkeryildirim.triomobileinternproject.Models.Geo;
 import com.google.gson.annotations.SerializedName;
 
 public class Address {

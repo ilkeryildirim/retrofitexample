@@ -1,4 +1,4 @@
-package com.dev.ilkeryildirim.triomobileinternproject.Models;
+package com.dev.ilkeryildirim.triomobileinternproject.Model;
 
 import com.google.gson.annotations.SerializedName;
 

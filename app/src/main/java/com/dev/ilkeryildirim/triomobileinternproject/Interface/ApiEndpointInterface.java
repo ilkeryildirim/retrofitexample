@@ -1,6 +1,6 @@
 package com.dev.ilkeryildirim.triomobileinternproject.Interface;
 
-import com.dev.ilkeryildirim.triomobileinternproject.Models.User;
+import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
 
 import java.util.List;
 import retrofit2.Call;

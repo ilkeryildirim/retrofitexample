@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dev.ilkeryildirim.triomobileinternproject.Activity.MapActivity;
-import com.dev.ilkeryildirim.triomobileinternproject.Models.User;
+import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
 import com.dev.ilkeryildirim.triomobileinternproject.R;
 
 import java.util.ArrayList;
