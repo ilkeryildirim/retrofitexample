@@ -17,23 +17,12 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<User> userList;
-    private ArrayList<Address> addressList;
-    private List<String> user_email;
-    private List<String> street;
-    private List<String> suite;
-    private List<String> city;
-    private List<String> lat;
-    private List<String> lng;
-
     private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
 
         recyclerView = findViewById(R.id.users_recylerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -46,10 +35,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 userList = new ArrayList<>(response.body());
                 recyclerView.setAdapter(new RecyclerviewAdapter(userList,getApplicationContext()));
-                System.out.println("call user :" + userList);
-                System.out.println("adress : "+addressList);
-            }
 
+            }
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
