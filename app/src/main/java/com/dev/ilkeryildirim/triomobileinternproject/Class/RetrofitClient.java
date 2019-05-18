@@ -1,4 +1,4 @@
-package com.dev.ilkeryildirim.triomobileinternproject;
+package com.dev.ilkeryildirim.triomobileinternproject.Class;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

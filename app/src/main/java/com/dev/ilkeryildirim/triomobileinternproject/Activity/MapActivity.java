@@ -1,4 +1,4 @@
-package com.dev.ilkeryildirim.triomobileinternproject;
+package com.dev.ilkeryildirim.triomobileinternproject.Activity;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.dev.ilkeryildirim.triomobileinternproject.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
