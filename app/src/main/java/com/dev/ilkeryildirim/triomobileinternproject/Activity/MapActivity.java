@@ -20,6 +20,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
     private TextView nameTV,mailTv,user_fullnameTv,streetTv,suiteTv,cityTv;
     private String lat,lng;
     private GoogleMap mMap;
+    private MapActContract.Presenter presenter;
+
+
+
+    public MapActivity(MapActContract.Presenter presenter) {
+        this.presenter = presenter;
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +40,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
         suiteTv=findViewById(R.id.map_suiteTv);
         cityTv=findViewById(R.id.map_cityTv);
         nameTV=findViewById(R.id.map_user_nameTv);
+        Intent i = getIntent();
+        presenter.setItems(i,nameTV,mailTv,user_fullnameTv,streetTv,suiteTv,cityTv,lat,lng);
 
-        Intent intent=getIntent();
-        suiteTv.setText(intent.getStringExtra("suite"));
-        streetTv.setText(intent.getStringExtra("street"));
-        mailTv.setText(intent.getStringExtra("email"));
-        cityTv.setText(intent.getStringExtra("city"));
-        nameTV.setText(intent.getStringExtra("name"));
-        user_fullnameTv.setText(intent.getStringExtra("fullname"));
-        lat= intent.getStringExtra("lat");
-        lng= intent.getStringExtra("lng");
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -64,4 +65,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
         super.onBackPressed();
         finish();
     }
+
+
+
 }

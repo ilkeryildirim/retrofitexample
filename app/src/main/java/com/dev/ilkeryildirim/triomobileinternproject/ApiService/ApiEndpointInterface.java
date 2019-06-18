@@ -1,4 +1,4 @@
-package com.dev.ilkeryildirim.triomobileinternproject.Interface;
+package com.dev.ilkeryildirim.triomobileinternproject.ApiService;
 
 import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
 
