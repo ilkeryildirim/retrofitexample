@@ -24,10 +24,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
 
 
 
-    public MapActivity(MapActContract.Presenter presenter) {
-        this.presenter = presenter;
 
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +37,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
         suiteTv=findViewById(R.id.map_suiteTv);
         cityTv=findViewById(R.id.map_cityTv);
         nameTV=findViewById(R.id.map_user_nameTv);
+        presenter= new MapActPresenter();
         Intent i = getIntent();
         presenter.setItems(i,nameTV,mailTv,user_fullnameTv,streetTv,suiteTv,cityTv,lat,lng);
 
@@ -53,10 +51,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+      /*  mMap = googleMap;
         LatLng userLocation = new LatLng(Double.parseDouble(lng), Double.parseDouble(lat));
         mMap.addMarker(new MarkerOptions().position(userLocation).title("Location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));*/
 
     }
 
