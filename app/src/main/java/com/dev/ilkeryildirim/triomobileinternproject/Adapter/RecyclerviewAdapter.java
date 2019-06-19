@@ -14,6 +14,7 @@ import com.dev.ilkeryildirim.triomobileinternproject.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 
@@ -52,7 +53,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     @Override
     public void putStrings(int itemposition) {
 
-        Intent i=
+        Intent i= new Intent(ctx, MapActivity.class);
         i.putExtra("email","E-mail: "+user_email.get(itemposition));
         i.putExtra("suite","Suite: "+suite.get(itemposition));
         i.putExtra("street","Street: "+street.get(itemposition));

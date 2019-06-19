@@ -1,6 +1,7 @@
 package com.dev.ilkeryildirim.triomobileinternproject.Adapter;
 
 
+import com.google.android.gms.maps.OnMapReadyCallback;
 
 public class RecylerviewAdaperPresenter implements RecylerviewAdapterContract.Presenter {
 
@@ -23,6 +24,7 @@ public class RecylerviewAdaperPresenter implements RecylerviewAdapterContract.Pr
         view.putStrings(position);
 
     }
+
 
 
 }

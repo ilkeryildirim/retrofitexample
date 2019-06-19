@@ -24,8 +24,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     private String lat, lng;
     private GoogleMap mMap;
     private MapActContract.Presenter presenter;
-
-
     @BindView(R.id.map_usermailTv)
     TextView mailTv;
     @BindView(R.id.map_user_nameTv)
@@ -45,23 +43,22 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         ButterKnife.bind(this);
-
-        presenter = new MapActPresenter(MapActivity.this);
-        presenter.onSetItems();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-
+        presenter = new MapActPresenter(MapActivity.this);
+        presenter.onSetItems();
+        presenter.initMap(this,mapFragment);
+        
     }
 
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
-        mMap = googleMap;
+        /**
+         mMap = googleMap;
         LatLng userLocation = new LatLng(Double.parseDouble(lng), Double.parseDouble(lat));
         mMap.addMarker(new MarkerOptions().position(userLocation).title("Location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation)); **/
 
 
     }
@@ -78,7 +75,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     public void SetItems() {
 
         Intent intent = getIntent();
-
+        System.out.println(intent.getStringExtra("suite"));
         suiteTv.setText(intent.getStringExtra("suite"));
         streetTv.setText(intent.getStringExtra("street"));
         mailTv.setText(intent.getStringExtra("email"));
