@@ -6,28 +6,19 @@ import android.widget.TextView;
 
 public class MapActPresenter implements MapActContract.Presenter {
 
+    public MapActPresenter(MapActContract.View view) {
+        this.view = view;
+    }
+
+    MapActContract.View view;
 
     @Override
-    public void setItems(Intent intent
-            ,TextView nameTV
-            ,TextView mailTv
-            ,TextView user_fullnameTv
-            ,TextView streetTv
-            ,TextView suiteTv
-            ,TextView cityTv
-            ,String lat
-            ,String lng) {
+    public void onSetItems() {
 
-        suiteTv.setText(intent.getStringExtra("suite"));
-        streetTv.setText(intent.getStringExtra("street"));
-        mailTv.setText(intent.getStringExtra("email"));
-        cityTv.setText(intent.getStringExtra("city"));
-        nameTV.setText(intent.getStringExtra("name"));
-        user_fullnameTv.setText(intent.getStringExtra("fullname"));
-        lat= intent.getStringExtra("lat");
-        lng= intent.getStringExtra("lng");
-
+        view.SetItems();
 
 
     }
+
+
 }

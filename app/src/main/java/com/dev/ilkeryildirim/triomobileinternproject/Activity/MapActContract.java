@@ -8,20 +8,12 @@ public interface MapActContract {
 
     interface View{
 
-
+      void SetItems();
     }
 
     interface Presenter{
 
-     void setItems(Intent intent
-                ,TextView nameTV
-                ,TextView mailTv
-                ,TextView user_fullnameTv
-                ,TextView streetTv
-                ,TextView suiteTv
-                ,TextView cityTv
-                ,String lat
-                ,String lng);
+     void onSetItems();
     }
 
 }

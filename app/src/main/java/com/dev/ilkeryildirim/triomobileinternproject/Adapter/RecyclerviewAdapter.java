@@ -15,20 +15,63 @@ import com.dev.ilkeryildirim.triomobileinternproject.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+
 public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapter.MyViewHolder> implements RecylerviewAdapterContract.View   {
 
-
-
     private List<User> userList;
-    private RecylerviewAdaperPresenter presenter;
+    ArrayList<String> user_email= new ArrayList<String>();
+    ArrayList<String> street= new ArrayList<String>();
+    ArrayList<String> suite= new ArrayList<String>();
+    ArrayList<String> city= new ArrayList<String>();
+    ArrayList<String> lat= new ArrayList<String>();
+    ArrayList<String> lng= new ArrayList<String>();
+    ArrayList<String> username= new ArrayList<String>();
+    ArrayList<String> name= new ArrayList<String>();
+    private RecylerviewAdapterContract.Presenter presenter;
+
 
     private User c;
     Context ctx;
     View mView;
 
+    @Override
+    public void bindViews() {
+
+        suite.add(c.getAddress().getSuite());
+        street.add(c.getAddress().getStreet());
+        city.add(c.getAddress().getCity());
+        user_email.add(c.getEmail());
+        username.add(c.getUsername());
+        name.add(c.getName());
+        lat.add(c.getAddress().getGeo().getLat());
+        lng.add(c.getAddress().getGeo().getLng());
+
+    }
+
+    @Override
+    public void putStrings(int itemposition) {
+
+        Intent i=
+        i.putExtra("email","E-mail: "+user_email.get(itemposition));
+        i.putExtra("suite","Suite: "+suite.get(itemposition));
+        i.putExtra("street","Street: "+street.get(itemposition));
+        i.putExtra("city","City: "+city.get(itemposition));
+        i.putExtra("lat",lat.get(itemposition));
+        i.putExtra("lng",lng.get(itemposition));
+        i.putExtra("fullname",name.get(itemposition));
+        i.putExtra("name","@"+username.get(itemposition));
+
+        System.out.println("111111111111111111111111111+ :"+street.get(itemposition));
+
+
+    }
+
+
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+
 
         public TextView user_name;
         public TextView user_fullname;
@@ -39,9 +82,8 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
             super(view);
 
             mView=view;
-            user_name = (TextView) view.findViewById(R.id.username_tv);
-            user_fullname = (TextView) view.findViewById(R.id.userfullname_tv);
-
+            user_name = view.findViewById(R.id.username_tv);
+            user_fullname =  view.findViewById(R.id.userfullname_tv);
         }
     }
 
@@ -57,21 +99,16 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
         c = userList.get(position);
-
-        presenter.onBindRecylerViewHolder(c);
+        presenter.onBindRecylerViewHolder();
 
         holder.user_fullname.setText(c.getName());
         holder.user_name.setText("@"+c.getUsername());
-
-
-
         mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View aView = v;
 
                 ctx=holder.itemView.getContext();Intent i = new Intent(ctx, MapActivity.class);
-                presenter.putStringsOnItemClick(position,i);
+                presenter.putStringsOnItemClick(position);
                 ctx.startActivity(i);
 
             }

@@ -15,33 +15,39 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-    private TextView nameTV,mailTv,user_fullnameTv,streetTv,suiteTv,cityTv;
-    private String lat,lng;
+public class MapActivity extends FragmentActivity implements OnMapReadyCallback,MapActContract.View {
+
+
+    private String lat, lng;
     private GoogleMap mMap;
     private MapActContract.Presenter presenter;
 
 
-
+    @BindView(R.id.map_usermailTv)
+    TextView mailTv;
+    @BindView(R.id.map_user_nameTv)
+    TextView nameTV;
+    @BindView(R.id.map_user_fullnameTv)
+    TextView user_fullnameTv;
+    @BindView(R.id.map_streetTv)
+    TextView streetTv;
+    @BindView(R.id.map_suiteTv)
+    TextView suiteTv;
+    @BindView(R.id.map_cityTv)
+    TextView cityTv;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+        ButterKnife.bind(this);
 
-        mailTv=findViewById(R.id.map_usermailTv);
-        user_fullnameTv=findViewById(R.id.map_user_fullnameTv);
-        streetTv=findViewById(R.id.map_streetTv);
-        suiteTv=findViewById(R.id.map_suiteTv);
-        cityTv=findViewById(R.id.map_cityTv);
-        nameTV=findViewById(R.id.map_user_nameTv);
-        presenter= new MapActPresenter();
-        Intent i = getIntent();
-        presenter.setItems(i,nameTV,mailTv,user_fullnameTv,streetTv,suiteTv,cityTv,lat,lng);
-
-
+        presenter = new MapActPresenter(MapActivity.this);
+        presenter.onSetItems();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -51,19 +57,35 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-      /*  mMap = googleMap;
+
+        mMap = googleMap;
         LatLng userLocation = new LatLng(Double.parseDouble(lng), Double.parseDouble(lat));
         mMap.addMarker(new MarkerOptions().position(userLocation).title("Location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));*/
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+
 
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+
         finish();
     }
 
 
+    @Override
+    public void SetItems() {
 
+        Intent intent = getIntent();
+
+        suiteTv.setText(intent.getStringExtra("suite"));
+        streetTv.setText(intent.getStringExtra("street"));
+        mailTv.setText(intent.getStringExtra("email"));
+        cityTv.setText(intent.getStringExtra("city"));
+        nameTV.setText(intent.getStringExtra("name"));
+        user_fullnameTv.setText(intent.getStringExtra("fullname"));
+        lat = intent.getStringExtra("lat");
+        lng = intent.getStringExtra("lng");
+    }
 }
