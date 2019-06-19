@@ -46,9 +46,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         presenter = new MapActPresenter(MapActivity.this);
-        presenter.onSetItems();
+        presenter.SetItems();
         presenter.initMap(this,mapFragment);
-        
+
     }
 
 
@@ -72,7 +72,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
 
     @Override
-    public void SetItems() {
+    public void onSetItems() {
 
         Intent intent = getIntent();
         System.out.println(intent.getStringExtra("suite"));

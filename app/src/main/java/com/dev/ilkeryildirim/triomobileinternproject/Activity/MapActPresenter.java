@@ -17,9 +17,9 @@ public class MapActPresenter implements MapActContract.Presenter {
     MapActContract.View view;
 
     @Override
-    public void onSetItems() {
+    public void SetItems() {
 
-        view.SetItems();
+        view.onSetItems();
 
 
     }

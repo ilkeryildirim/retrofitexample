@@ -11,12 +11,12 @@ public interface MapActContract {
 
     interface View{
 
-      void SetItems();
+      void onSetItems();
     }
 
     interface Presenter{
 
-     void onSetItems();
+     void SetItems();
      void initMap(OnMapReadyCallback onMapReadyCallback,
                   SupportMapFragment supportMapFragment);
 
