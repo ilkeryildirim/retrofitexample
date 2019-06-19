@@ -43,11 +43,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         ButterKnife.bind(this);
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+
         presenter = new MapActPresenter(MapActivity.this);
-        presenter.SetItems();
-        presenter.initMap(this,mapFragment);
+        presenter.created();
+
 
     }
 
@@ -72,8 +71,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
 
     @Override
-    public void onSetItems() {
+    public void SetItems() {
 
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        presenter.initMap(this,mapFragment);
         Intent intent = getIntent();
         System.out.println(intent.getStringExtra("suite"));
         suiteTv.setText(intent.getStringExtra("suite"));

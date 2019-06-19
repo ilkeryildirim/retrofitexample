@@ -1,9 +1,5 @@
 package com.dev.ilkeryildirim.triomobileinternproject.Activity;
 
-import android.content.Intent;
-import android.widget.TextView;
-
-import com.dev.ilkeryildirim.triomobileinternproject.R;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 
@@ -17,9 +13,9 @@ public class MapActPresenter implements MapActContract.Presenter {
     MapActContract.View view;
 
     @Override
-    public void SetItems() {
+    public void created() {
 
-        view.onSetItems();
+        view.SetItems();
 
 
     }

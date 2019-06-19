@@ -3,12 +3,10 @@ package com.dev.ilkeryildirim.triomobileinternproject.Model;
 import com.dev.ilkeryildirim.triomobileinternproject.Activity.MainActContract;
 import com.dev.ilkeryildirim.triomobileinternproject.ApiService.RetrofitClient;
 import com.dev.ilkeryildirim.triomobileinternproject.ApiService.ApiEndpointInterface;
-import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
-import com.dev.ilkeryildirim.triomobileinternproject.Model.UserContract;
+
 
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,7 +21,6 @@ public class UserPresenter implements UserContract.Presenter{
         this.mainActview= (MainActContract.View) view;
 
     }
-
 
 
     @Override
