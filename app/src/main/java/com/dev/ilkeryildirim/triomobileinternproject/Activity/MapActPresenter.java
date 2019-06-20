@@ -1,8 +1,5 @@
 package com.dev.ilkeryildirim.triomobileinternproject.Activity;
 
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-
 
 public class MapActPresenter implements MapActContract.Presenter {
 
@@ -15,17 +12,10 @@ public class MapActPresenter implements MapActContract.Presenter {
     @Override
     public void created() {
 
-        view.SetItems();
-
-
-    }
-
-    @Override
-    public void initMap(OnMapReadyCallback onMapReadyCallback,SupportMapFragment supportMapFragment) {
-
-        supportMapFragment.getMapAsync(onMapReadyCallback);
+        view.getSharedData();
 
     }
+
 
 
 }

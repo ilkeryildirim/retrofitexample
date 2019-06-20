@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.dev.ilkeryildirim.triomobileinternproject.R;
+import com.dev.ilkeryildirim.triomobileinternproject.Singeleton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -21,9 +22,10 @@ import butterknife.ButterKnife;
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback,MapActContract.View {
 
 
-    private String lat, lng;
     private GoogleMap mMap;
     private MapActContract.Presenter presenter;
+    private Singeleton singeleton;
+
     @BindView(R.id.map_usermailTv)
     TextView mailTv;
     @BindView(R.id.map_user_nameTv)
@@ -43,6 +45,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         ButterKnife.bind(this);
+        singeleton=new Singeleton();
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
         presenter = new MapActPresenter(MapActivity.this);
         presenter.created();
@@ -53,38 +59,31 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        /**
-         mMap = googleMap;
-        LatLng userLocation = new LatLng(Double.parseDouble(lng), Double.parseDouble(lat));
+/*
+        mMap = googleMap;
+        LatLng userLocation = new LatLng(Double.parseDouble(singeleton.getLat()), Double.parseDouble(singeleton.getLng()));
         mMap.addMarker(new MarkerOptions().position(userLocation).title("Location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation)); **/
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+*/
 
+    }
+
+
+    @Override
+    public void getSharedData() {
+        mailTv.setText(singeleton.getMail());
+        nameTV.setText(singeleton.getUsername());
+        user_fullnameTv.setText(singeleton.getUserfullname());
+        streetTv.setText(singeleton.getStreet());
+        suiteTv.setText(singeleton.getSuite());
+        cityTv.setText(singeleton.getCity());
 
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
         finish();
     }
 
-
-    @Override
-    public void SetItems() {
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        presenter.initMap(this,mapFragment);
-        Intent intent = getIntent();
-        System.out.println(intent.getStringExtra("suite"));
-        suiteTv.setText(intent.getStringExtra("suite"));
-        streetTv.setText(intent.getStringExtra("street"));
-        mailTv.setText(intent.getStringExtra("email"));
-        cityTv.setText(intent.getStringExtra("city"));
-        nameTV.setText(intent.getStringExtra("name"));
-        user_fullnameTv.setText(intent.getStringExtra("fullname"));
-        lat = intent.getStringExtra("lat");
-        lng = intent.getStringExtra("lng");
-    }
 }
