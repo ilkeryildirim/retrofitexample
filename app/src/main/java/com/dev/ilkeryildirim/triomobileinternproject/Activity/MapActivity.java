@@ -7,9 +7,12 @@ import android.widget.TextView;
 
 import com.dev.ilkeryildirim.triomobileinternproject.R;
 import com.dev.ilkeryildirim.triomobileinternproject.SharedData;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,12 +58,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-/*
+
         mMap = googleMap;
-        LatLng userLocation = new LatLng(Double.parseDouble(singeleton.getLat()), Double.parseDouble(singeleton.getLng()));
+        LatLng userLocation = new LatLng(Double.parseDouble(sharedData.getLat()), Double.parseDouble(sharedData.getLng()));
         mMap.addMarker(new MarkerOptions().position(userLocation).title("Location"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
-*/
+
 
     }
 
