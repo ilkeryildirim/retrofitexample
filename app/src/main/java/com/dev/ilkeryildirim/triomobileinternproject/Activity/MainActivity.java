@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.dev.ilkeryildirim.triomobileinternproject.Adapter.RecyclerviewAdapter;
 import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
 import com.dev.ilkeryildirim.triomobileinternproject.R;
-import com.dev.ilkeryildirim.triomobileinternproject.Singeleton;
+import com.dev.ilkeryildirim.triomobileinternproject.SharedData;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
     private RecyclerView recyclerView;
     private List<User> userList;
     private MainActPresenter mainActPresenter;
-    private Singeleton sharedData;
+    private SharedData sharedData;
     private User c;
 
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
     @Override
     public void onRecyclerClick(int position) {
         c=userList.get(position);
-        sharedData=new Singeleton();
+        sharedData=new SharedData();
         sharedData.setUserfullname(c.getName());
         sharedData.setUsername(c.getUsername());
         sharedData.setMail(c.getEmail());
@@ -64,9 +64,8 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
         sharedData.setLat(c.getAddress().getGeo().getLat());
         sharedData.setLng(c.getAddress().getGeo().getLng());
 
-        System.out.println(sharedData.getMail()+sharedData.getUsername()+sharedData.getUserfullname()+sharedData.getStreet()+sharedData.getSuite());
-
         Intent intent = new Intent(MainActivity.this,MapActivity.class);
+        intent.putExtra("MyClass", sharedData);
         startActivity(intent);
     }
 }

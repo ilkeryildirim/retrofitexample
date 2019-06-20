@@ -2,19 +2,14 @@ package com.dev.ilkeryildirim.triomobileinternproject.Activity;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.dev.ilkeryildirim.triomobileinternproject.R;
-import com.dev.ilkeryildirim.triomobileinternproject.Singeleton;
-import com.google.android.gms.maps.CameraUpdateFactory;
+import com.dev.ilkeryildirim.triomobileinternproject.SharedData;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +19,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
     private GoogleMap mMap;
     private MapActContract.Presenter presenter;
-    private Singeleton singeleton;
+
 
     @BindView(R.id.map_usermailTv)
     TextView mailTv;
@@ -45,7 +40,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         ButterKnife.bind(this);
-        singeleton=new Singeleton();
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -71,12 +66,15 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
     @Override
     public void getSharedData() {
-        mailTv.setText(singeleton.getMail());
-        nameTV.setText(singeleton.getUsername());
-        user_fullnameTv.setText(singeleton.getUserfullname());
-        streetTv.setText(singeleton.getStreet());
-        suiteTv.setText(singeleton.getSuite());
-        cityTv.setText(singeleton.getCity());
+        Intent i= getIntent();
+        SharedData sharedData = (SharedData) i.getSerializableExtra("MyClass");
+
+        mailTv.setText(sharedData.getMail());
+        nameTV.setText(sharedData.getUsername());
+        user_fullnameTv.setText(sharedData.getUserfullname());
+        streetTv.setText(sharedData.getStreet());
+        suiteTv.setText(sharedData.getSuite());
+        cityTv.setText(sharedData.getCity());
 
     }
 

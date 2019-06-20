@@ -1,6 +1,9 @@
 package com.dev.ilkeryildirim.triomobileinternproject;
 import android.app.Application;
-public class Singeleton{
+
+import java.io.Serializable;
+
+public class SharedData implements Serializable {
 
     private String userfullname;
     private String username;
