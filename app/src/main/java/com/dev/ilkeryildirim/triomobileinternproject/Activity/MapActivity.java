@@ -19,6 +19,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
     private GoogleMap mMap;
     private MapActContract.Presenter presenter;
+    private SharedData sharedData;
 
 
     @BindView(R.id.map_usermailTv)
@@ -67,7 +68,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     @Override
     public void getSharedData() {
         Intent i= getIntent();
-        SharedData sharedData = (SharedData) i.getSerializableExtra("MyClass");
+        sharedData = (SharedData) i.getSerializableExtra("MyClass");
 
         mailTv.setText(sharedData.getMail());
         nameTV.setText(sharedData.getUsername());
