@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
 import com.dev.ilkeryildirim.triomobileinternproject.R;
-import com.dev.ilkeryildirim.triomobileinternproject.SharedData;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,7 +22,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
     private GoogleMap mMap;
     private MapActContract.Presenter presenter;
-    private SharedData sharedData;
+    private User user;
 
 
     @BindView(R.id.map_usermailTv)
@@ -44,13 +44,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         ButterKnife.bind(this);
-
+        presenter = new MapActPresenter(MapActivity.this);
+        presenter.created();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        presenter = new MapActPresenter(MapActivity.this);
-        presenter.created();
+
 
 
     }
@@ -60,7 +60,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
-        LatLng userLocation = new LatLng(Double.parseDouble(sharedData.getLat()), Double.parseDouble(sharedData.getLng()));
+        LatLng userLocation = new LatLng(Double.parseDouble(user.getAddress().getGeo().getLat()), Double.parseDouble(user.getAddress().getGeo().getLng()));
         mMap.addMarker(new MarkerOptions().position(userLocation).title("Location"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
 
@@ -71,14 +71,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     @Override
     public void getSharedData() {
         Intent i= getIntent();
-        sharedData = (SharedData) i.getSerializableExtra("MyClass");
+        user = i.getParcelableExtra("MyClass");
 
-        mailTv.setText(sharedData.getMail());
-        nameTV.setText(sharedData.getUsername());
-        user_fullnameTv.setText(sharedData.getUserfullname());
-        streetTv.setText(sharedData.getStreet());
-        suiteTv.setText(sharedData.getSuite());
-        cityTv.setText(sharedData.getCity());
+        mailTv.setText(user.getEmail());
+        nameTV.setText(user.getName());
+        user_fullnameTv.setText(user.getUsername());
+        streetTv.setText(user.getAddress().getStreet());
+        suiteTv.setText(user.getAddress().getSuite());
+        cityTv.setText(user.getAddress().getCity());
 
     }
 

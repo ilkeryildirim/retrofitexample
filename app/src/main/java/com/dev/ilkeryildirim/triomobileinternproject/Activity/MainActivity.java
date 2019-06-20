@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.dev.ilkeryildirim.triomobileinternproject.Adapter.RecyclerviewAdapter;
 import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
 import com.dev.ilkeryildirim.triomobileinternproject.R;
-import com.dev.ilkeryildirim.triomobileinternproject.SharedData;
 
 import java.util.List;
 
@@ -21,9 +20,6 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
     private RecyclerView recyclerView;
     private List<User> userList;
     private MainActPresenter mainActPresenter;
-    private SharedData sharedData;
-    private User c;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
         setContentView(R.layout.activity_main);
         mainActPresenter= new MainActPresenter(this);
         mainActPresenter.getUserResponse();
-
 
     }
 
@@ -53,19 +48,9 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
 
     @Override
     public void onRecyclerClick(int position) {
-        c=userList.get(position);
-        sharedData=new SharedData();
-        sharedData.setUserfullname(c.getName());
-        sharedData.setUsername(c.getUsername());
-        sharedData.setMail(c.getEmail());
-        sharedData.setCity(c.getAddress().getCity());
-        sharedData.setSuite(c.getAddress().getSuite());
-        sharedData.setStreet(c.getAddress().getStreet());
-        sharedData.setLat(c.getAddress().getGeo().getLat());
-        sharedData.setLng(c.getAddress().getGeo().getLng());
-
         Intent intent = new Intent(MainActivity.this,MapActivity.class);
-        intent.putExtra("MyClass", sharedData);
+        intent.putExtra("MyClass", userList.get(position));
+
         startActivity(intent);
     }
 }
