@@ -72,7 +72,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     public void getSharedData() {
         Intent i= getIntent();
         user = i.getParcelableExtra("MyClass");
-
         mailTv.setText(user.getEmail());
         nameTV.setText(user.getName());
         user_fullnameTv.setText(user.getUsername());
