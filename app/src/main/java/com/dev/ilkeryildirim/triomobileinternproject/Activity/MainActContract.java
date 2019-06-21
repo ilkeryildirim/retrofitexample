@@ -10,7 +10,6 @@ public interface MainActContract {
         void showError(String error);
         void onUserResponseReady(List<User> users);
 
-
     }
 
     interface Presenter{

@@ -5,9 +5,17 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+import javax.inject.Inject;
 
 
 public class User implements Parcelable {
+
+
+    @Inject
+    public User(Address address) {
+        this.address=address;
+    }
+
     @SerializedName("name")
     private String name;
 
@@ -22,6 +30,7 @@ public class User implements Parcelable {
     private Address address;
 
 
+
     public String getName() {
         return name;
     }
@@ -34,9 +43,7 @@ public class User implements Parcelable {
         return email;
     }
 
-    public Address getAddress() {
-        return address;
-    }
+    public Address getAddress() { return address; }
 
 
     @Override
@@ -52,10 +59,9 @@ public class User implements Parcelable {
         dest.writeParcelable(this.address, flags);
     }
 
-    public User() {
-    }
 
-    protected User(Parcel in) {
+
+    public User(Parcel in) {
         this.name = in.readString();
         this.username = in.readString();
         this.email = in.readString();
