@@ -1,5 +1,6 @@
 package com.dev.ilkeryildirim.triomobileinternproject.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,12 +16,17 @@ import com.dev.ilkeryildirim.triomobileinternproject.R;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity implements MainActContract.View, RecyclerviewAdapter.MyViewHolder.RecyclerViewClickListener {
 
 
     private RecyclerView recyclerView;
     private List<User> userList;
     private MainActPresenter mainActPresenter;
+    @Inject
+    Context context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
