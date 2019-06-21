@@ -13,15 +13,14 @@ public class DaggerApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        initializeInjector();
+
+         daggerComponent = DaggerDaggerComponent.builder()
+                 .daggerModule(new DaggerModule(this))
+                 .build();
 
     }
 
-    private void initializeInjector(){
-        daggerComponent = DaggerDaggerComponent.builder()
-                .daggerModule(new DaggerModule(this))
-                .build();
-    }
+
 
     public DaggerComponent getDaggerComponent(){
         return daggerComponent;

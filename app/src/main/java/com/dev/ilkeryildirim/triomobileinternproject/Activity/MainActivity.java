@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 
 import com.dev.ilkeryildirim.triomobileinternproject.Adapter.RecyclerviewAdapter;
+import com.dev.ilkeryildirim.triomobileinternproject.Di.DaggerApplication;
 import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
 import com.dev.ilkeryildirim.triomobileinternproject.R;
 
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new RecyclerviewAdapter(users,this));
         this.userList=users;
-
+        ((DaggerApplication) getApplication()).getDaggerComponent().inject(this);
     }
 
     @Override

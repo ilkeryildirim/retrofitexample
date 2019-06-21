@@ -9,6 +9,7 @@ public class MapActPresenter implements MapActContract.Presenter {
 
     MapActContract.View view;
 
+
     @Override
     public void created() {
 
