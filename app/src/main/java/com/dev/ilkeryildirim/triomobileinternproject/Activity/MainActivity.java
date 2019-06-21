@@ -14,15 +14,12 @@ import com.dev.ilkeryildirim.triomobileinternproject.R;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 public class MainActivity extends AppCompatActivity implements MainActContract.View, RecyclerviewAdapter.MyViewHolder.RecyclerViewClickListener {
 
 
     private RecyclerView recyclerView;
     private List<User> userList;
     private MainActPresenter mainActPresenter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

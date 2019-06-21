@@ -5,18 +5,10 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-import javax.inject.Inject;
-
 
 public class Address implements Parcelable {
 
-    @Inject
-    public Address(Geo geo) {
-        this.geo=geo;
-    }
-
-
-    @SerializedName("street")
+   @SerializedName("street")
     private String street;
 
    @SerializedName("suite")
@@ -28,8 +20,6 @@ public class Address implements Parcelable {
    //Geo branch
     @SerializedName("geo")
     private Geo geo;
-
-
 
     public Geo getGeo() {
         return geo;
@@ -61,6 +51,8 @@ public class Address implements Parcelable {
         dest.writeParcelable(this.geo, flags);
     }
 
+    public Address() {
+    }
 
     protected Address(Parcel in) {
         this.street = in.readString();

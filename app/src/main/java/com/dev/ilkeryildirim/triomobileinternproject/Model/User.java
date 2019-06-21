@@ -9,13 +9,6 @@ import javax.inject.Inject;
 
 
 public class User implements Parcelable {
-
-
-    @Inject
-    public User(Address address) {
-        this.address=address;
-    }
-
     @SerializedName("name")
     private String name;
 
@@ -29,7 +22,10 @@ public class User implements Parcelable {
     @SerializedName("address")
     private Address address;
 
-
+    @Inject
+    public User(Address adress) {
+        this.address=adress;
+    }
 
     public String getName() {
         return name;
@@ -43,7 +39,9 @@ public class User implements Parcelable {
         return email;
     }
 
-    public Address getAddress() { return address; }
+    public Address getAddress() {
+        return address;
+    }
 
 
     @Override
@@ -61,7 +59,7 @@ public class User implements Parcelable {
 
 
 
-    public User(Parcel in) {
+    protected User(Parcel in) {
         this.name = in.readString();
         this.username = in.readString();
         this.email = in.readString();

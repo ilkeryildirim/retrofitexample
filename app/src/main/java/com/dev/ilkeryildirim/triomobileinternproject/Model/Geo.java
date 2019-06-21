@@ -5,16 +5,8 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-import javax.inject.Inject;
-
 
 public class Geo implements Parcelable {
-
-    @Inject
-    public Geo(){
-
-    }
-
 
     @SerializedName("lat")
     private String lat;
@@ -41,6 +33,8 @@ public class Geo implements Parcelable {
         dest.writeString(this.lng);
     }
 
+    public Geo() {
+    }
 
     protected Geo(Parcel in) {
         this.lat = in.readString();
