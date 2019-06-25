@@ -23,8 +23,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     private GoogleMap mMap;
     private MapActContract.Presenter presenter;
     private User user;
-
-
     @BindView(R.id.map_usermailTv)
     TextView mailTv;
     @BindView(R.id.map_user_nameTv)
@@ -37,21 +35,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     TextView suiteTv;
     @BindView(R.id.map_cityTv)
     TextView cityTv;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         ButterKnife.bind(this);
-        presenter = new MapActPresenter(MapActivity.this);
-        presenter.created();
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
 
-
-
+        initViews();
+        initVariables();
 
     }
 
@@ -69,7 +60,17 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
 
     @Override
-    public void getSharedData() {
+    public void initVariables() {
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+    }
+
+    @Override
+    public void initViews() {
+
         Intent i= getIntent();
         user = i.getParcelableExtra("MyClass");
         mailTv.setText(user.getEmail());
@@ -80,11 +81,4 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         cityTv.setText(user.getAddress().getCity());
 
     }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
-
 }

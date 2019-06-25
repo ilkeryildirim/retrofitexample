@@ -14,7 +14,7 @@
         android:layout_marginTop="4dp"
 
         android:layout_marginEnd="8dp"
-        android:text="Full Name"
+        android:text="@string/user_full_name"
         android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.026"
@@ -30,7 +30,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-light"
-        android:text=" @Username"
+        android:text="@string/user_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.035"

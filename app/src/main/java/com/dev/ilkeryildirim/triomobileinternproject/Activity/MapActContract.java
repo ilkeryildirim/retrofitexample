@@ -5,14 +5,11 @@ package com.dev.ilkeryildirim.triomobileinternproject.Activity;
 public interface MapActContract {
 
 
-    interface View{
+    interface View extends IBase.View {
 
-      void getSharedData();
     }
 
     interface Presenter{
-
-     void created();
 
 
     }

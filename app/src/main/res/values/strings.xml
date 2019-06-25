@@ -1,7 +1,14 @@
 <resources>
-    <string name="app_name">TrioMobileInternProject</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="app_name">Where is my mate</string>
+    <string name="title_activity_maps">My mate is here Activity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_name">Username :</string>
+    <string name="user_full_name">Name :</string>
+    <string name="user_mail">Email :</string>
+    <string name="user_address">Adress :</string>
+    <string name="user_city">City :</string>
+    <string name="user_suite">Suite :</string>
+    <string name="user_street">Street :</string>
+    <string name="adress_text">Address</string>
+
 </resources>

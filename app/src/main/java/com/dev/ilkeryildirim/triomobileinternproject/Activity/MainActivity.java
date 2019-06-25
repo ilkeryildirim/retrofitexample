@@ -2,6 +2,7 @@ package com.dev.ilkeryildirim.triomobileinternproject.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,10 +21,9 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainActContract.View, RecyclerviewAdapter.MyViewHolder.RecyclerViewClickListener {
 
-
+    private List<User> users;
     private RecyclerView recyclerView;
-    private List<User> userList;
-    private MainActPresenter mainActPresenter;
+    private MainActPresenter presenter;
     @Inject
     Context context;
 
@@ -32,8 +32,11 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mainActPresenter= new MainActPresenter(this);
-        mainActPresenter.getUserResponse();
+        initVariables();
+        initViews();
+        presenter=new MainActPresenter(this);
+        ((DaggerApplication) getApplication()).getDaggerComponent().inject(this);
+        presenter.getUserResponse();
 
     }
 
@@ -43,8 +46,9 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
         recyclerView = findViewById(R.id.users_recylerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new RecyclerviewAdapter(users,this));
-        this.userList=users;
-        ((DaggerApplication) getApplication()).getDaggerComponent().inject(this);
+        this.users=users;
+
+
     }
 
     @Override
@@ -55,9 +59,20 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
 
     @Override
     public void onRecyclerClick(int position) {
+
         Intent intent = new Intent(MainActivity.this,MapActivity.class);
-        intent.putExtra("MyClass", userList.get(position));
+        intent.putExtra("MyClass",users.get(position));
 
         startActivity(intent);
+    }
+
+    @Override
+    public void initVariables() {
+
+    }
+
+    @Override
+    public void initViews() {
+
     }
 }

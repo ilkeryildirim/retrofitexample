@@ -1,13 +1,12 @@
 package com.dev.ilkeryildirim.triomobileinternproject.Activity;
 
-import android.util.Log;
-
-import com.dev.ilkeryildirim.triomobileinternproject.ApiService.ApiEndpointInterface;
+import com.dev.ilkeryildirim.triomobileinternproject.ApiService.ApiEndpoint;
 import com.dev.ilkeryildirim.triomobileinternproject.ApiService.RetrofitClient;
 import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,7 +25,7 @@ public class MainActPresenter implements MainActContract.Presenter {
 
     @Override
     public void getUserResponse() {
-        ApiEndpointInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiEndpointInterface.class);
+        ApiEndpoint apiInterface = RetrofitClient.getRetrofitInstance().create(ApiEndpoint.class);
 
         Call<List<User>> callUser = apiInterface.getUsers();
         callUser.enqueue(new Callback<List<User>>() {
@@ -43,12 +42,6 @@ public class MainActPresenter implements MainActContract.Presenter {
             }
         });
     }
-
-    @Override
-    public void loadError() {
-
-    }
-
 
 }
 

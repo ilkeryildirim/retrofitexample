@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Arkadaşım Nerede </string>
+    <string name="title_activity_maps">Arkadaşım Burada Activity</string>
+
+    <string name="user_name">Kullanıcı Adı :</string>
+    <string name="user_full_name">İsim :</string>
+    <string name="user_mail">Mail Adresi :</string>
+    <string name="user_address">Adres :</string>
+    <string name="user_city">Şehir :</string>
+    <string name="user_suite"></string>
+    <string name="user_street"></string>
+    <string name="adress_text">Adres</string>
+
+</resources>

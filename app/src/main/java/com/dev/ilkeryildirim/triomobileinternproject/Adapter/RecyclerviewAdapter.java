@@ -39,10 +39,12 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
 
         @Override
         public void onClick(View v) {
+
             recyclerViewClickListener.onRecyclerClick(getAdapterPosition());
         }
 
         public interface RecyclerViewClickListener{
+
             void onRecyclerClick(int position);
         }
     }
@@ -58,8 +60,10 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
         c = userList.get(position);
-        holder.user_name.setText("@"+c.getUsername());
+
+        holder.user_name.setText(c.getUsername());
         holder.user_fullname.setText(c.getName());
+
 
     }
 

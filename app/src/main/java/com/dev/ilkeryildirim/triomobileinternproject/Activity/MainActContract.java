@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface MainActContract {
 
-    interface View{
+    interface View extends IBase.View{
 
         void showError(String error);
         void onUserResponseReady(List<User> users);
@@ -15,8 +15,6 @@ public interface MainActContract {
     interface Presenter{
 
         void getUserResponse();
-        void loadError();
-
     }
 
 }
