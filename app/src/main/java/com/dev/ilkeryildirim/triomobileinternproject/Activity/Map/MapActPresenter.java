@@ -1,4 +1,4 @@
-package com.dev.ilkeryildirim.triomobileinternproject.Activity;
+package com.dev.ilkeryildirim.triomobileinternproject.Activity.Map;
 
 
 

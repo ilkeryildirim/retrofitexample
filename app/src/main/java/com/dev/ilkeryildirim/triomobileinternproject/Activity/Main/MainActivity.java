@@ -1,7 +1,6 @@
-package com.dev.ilkeryildirim.triomobileinternproject.Activity;
+package com.dev.ilkeryildirim.triomobileinternproject.Activity.Main;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 
+import com.dev.ilkeryildirim.triomobileinternproject.Activity.Map.MapActivity;
 import com.dev.ilkeryildirim.triomobileinternproject.Adapter.RecyclerviewAdapter;
 import com.dev.ilkeryildirim.triomobileinternproject.Const;
 import com.dev.ilkeryildirim.triomobileinternproject.Di.DaggerApplication;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
     @Override
     public void onRecyclerClick(User user) {
 
-        Intent intent = new Intent(MainActivity.this,MapActivity.class);
+        Intent intent = new Intent(MainActivity.this, MapActivity.class);
         intent.putExtra(Const.CLASS_USER_TAG,user);
         startActivity(intent);
     }

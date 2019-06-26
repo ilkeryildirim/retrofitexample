@@ -1,4 +1,4 @@
-package com.dev.ilkeryildirim.triomobileinternproject.Activity;
+package com.dev.ilkeryildirim.triomobileinternproject.Activity.Main;
 
 import com.dev.ilkeryildirim.triomobileinternproject.ApiService.ApiEndpoint;
 import com.dev.ilkeryildirim.triomobileinternproject.ApiService.RetrofitClient;
@@ -6,7 +6,6 @@ import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;

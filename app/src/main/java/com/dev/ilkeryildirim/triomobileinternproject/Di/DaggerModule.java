@@ -4,8 +4,6 @@ package com.dev.ilkeryildirim.triomobileinternproject.Di;
 
 import android.content.Context;
 
-import com.dev.ilkeryildirim.triomobileinternproject.Activity.MapActPresenter;
-
 import javax.inject.Singleton;
 
 import dagger.Module;
