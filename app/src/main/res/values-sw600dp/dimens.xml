@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="top_padding">20dp</dimen>
+    <dimen name="bottom_padding">20dp</dimen>
+    <dimen name="start_padding">20dp</dimen>
+    <dimen name="end_padding">20dp</dimen>
+    <dimen name="item_padding">20dp</dimen>
+    <dimen name="textview_width">400dp</dimen>
+    <dimen name="text_size">25sp</dimen>
+
+
+</resources>
