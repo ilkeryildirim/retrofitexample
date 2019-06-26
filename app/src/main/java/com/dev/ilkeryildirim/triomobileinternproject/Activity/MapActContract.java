@@ -12,8 +12,6 @@ public interface MapActContract {
 
     interface Presenter{
 
-
-
     }
 
 }

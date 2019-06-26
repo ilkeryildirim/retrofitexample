@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
         setContentView(R.layout.activity_main);
         initVariables();
         initViews();
-        presenter.getUserResponse();
+
     }
 
     @Override
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
 
     @Override
     public void initVariables() {
-
+        presenter.getUserResponse();
         presenter=new MainActPresenter(this);
         ((DaggerApplication) getApplication()).getDaggerComponent().inject(this);
     }
