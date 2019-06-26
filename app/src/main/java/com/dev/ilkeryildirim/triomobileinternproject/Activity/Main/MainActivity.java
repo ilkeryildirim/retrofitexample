@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
         Toast.makeText(getApplicationContext(),error,Toast.LENGTH_LONG).show();
     }
 
-
     @Override
     public void onRecyclerClick(User user) {
 
@@ -55,8 +54,8 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
 
     @Override
     public void initVariables() {
-        presenter.getUserResponse();
         presenter=new MainActPresenter(this);
+        presenter.getUserResponse();
         ((DaggerApplication) getApplication()).getDaggerComponent().inject(this);
     }
 
