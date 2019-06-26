@@ -15,7 +15,7 @@ import java.util.List;
 import butterknife.BindView;
 
 
-public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapter.MyViewHolder>  {
+public class UsersRecyclerView extends RecyclerView.Adapter<UsersRecyclerView.MyViewHolder>  {
 
     private static List<User> userList;
     private MyViewHolder.RecyclerViewClickListener recyclerViewClickListener;
@@ -51,7 +51,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
         }
     }
 
-    public RecyclerviewAdapter(List<User> userList, MyViewHolder.RecyclerViewClickListener recyclerViewClickListener) {
+    public UsersRecyclerView(List<User> userList, MyViewHolder.RecyclerViewClickListener recyclerViewClickListener) {
 
         this.userList = userList;
         this.recyclerViewClickListener=recyclerViewClickListener;
@@ -62,7 +62,6 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
         c = userList.get(position);
-
 
         holder.user_name.setText(c.getUsername());
         holder.user_fullname.setText(c.getName());

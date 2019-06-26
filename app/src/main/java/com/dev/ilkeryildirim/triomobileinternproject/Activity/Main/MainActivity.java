@@ -9,7 +9,8 @@ import android.widget.Toast;
 
 
 import com.dev.ilkeryildirim.triomobileinternproject.Activity.Map.MapActivity;
-import com.dev.ilkeryildirim.triomobileinternproject.Adapter.RecyclerviewAdapter;
+import com.dev.ilkeryildirim.triomobileinternproject.Activity.Profile.ProfileActivity;
+import com.dev.ilkeryildirim.triomobileinternproject.Adapter.UsersRecyclerView;
 import com.dev.ilkeryildirim.triomobileinternproject.Const;
 import com.dev.ilkeryildirim.triomobileinternproject.Di.DaggerApplication;
 import com.dev.ilkeryildirim.triomobileinternproject.Model.User;
@@ -17,7 +18,7 @@ import com.dev.ilkeryildirim.triomobileinternproject.R;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MainActContract.View, RecyclerviewAdapter.MyViewHolder.RecyclerViewClickListener {
+public class MainActivity extends AppCompatActivity implements MainActContract.View, UsersRecyclerView.MyViewHolder.RecyclerViewClickListener {
 
 
     private RecyclerView recyclerView;
@@ -29,13 +30,15 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
         setContentView(R.layout.activity_main);
         initVariables();
         initViews();
+        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+        startActivity(intent);
 
     }
 
     @Override
     public void onUserResponseReady(List<User> users) {
 
-        recyclerView.setAdapter(new RecyclerviewAdapter(users,this));
+        recyclerView.setAdapter(new UsersRecyclerView(users,this));
     }
 
     @Override
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
 
     @Override
     public void initVariables() {
+
         presenter=new MainActPresenter(this);
         presenter.getUserResponse();
         ((DaggerApplication) getApplication()).getDaggerComponent().inject(this);
