@@ -21,26 +21,17 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
 
     private GoogleMap mMap;
-    private MapActContract.Presenter presenter;
     private User user;
-    @BindView(R.id.map_usermailTv)
-    TextView mailTv;
-    @BindView(R.id.map_user_nameTv)
-    TextView nameTV;
-    @BindView(R.id.map_user_fullnameTv)
-    TextView user_fullnameTv;
-    @BindView(R.id.map_streetTv)
-    TextView streetTv;
-    @BindView(R.id.map_suiteTv)
-    TextView suiteTv;
-    @BindView(R.id.map_cityTv)
-    TextView cityTv;
+    @BindView(R.id.map_usermailTv) TextView mailTv;
+    @BindView(R.id.map_user_nameTv) TextView nameTV;
+    @BindView(R.id.map_user_fullnameTv) TextView user_fullnameTv;
+    @BindView(R.id.map_streetTv) TextView streetTv;
+    @BindView(R.id.map_suiteTv) TextView suiteTv;
+    @BindView(R.id.map_cityTv) TextView cityTv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        ButterKnife.bind(this);
-
         initViews();
         initVariables();
 
@@ -49,13 +40,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
         mMap = googleMap;
         LatLng userLocation = new LatLng(Double.parseDouble(user.getAddress().getGeo().getLat()), Double.parseDouble(user.getAddress().getGeo().getLng()));
         mMap.addMarker(new MarkerOptions().position(userLocation).title("Location"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
-
-
     }
 
 
@@ -71,6 +59,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     @Override
     public void initViews() {
 
+        ButterKnife.bind(this);
         Intent i= getIntent();
         user = i.getParcelableExtra("MyClass");
         mailTv.setText(user.getEmail());

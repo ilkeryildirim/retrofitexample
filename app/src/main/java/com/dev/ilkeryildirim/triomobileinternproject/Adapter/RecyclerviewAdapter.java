@@ -17,7 +17,7 @@ import butterknife.BindView;
 
 public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapter.MyViewHolder>  {
 
-    private List<User> userList;
+    public static List<User> userList;
     private MyViewHolder.RecyclerViewClickListener recyclerViewClickListener;
     private User c;
 
@@ -40,12 +40,14 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
         @Override
         public void onClick(View v) {
 
-            recyclerViewClickListener.onRecyclerClick(getAdapterPosition());
+            recyclerViewClickListener.onRecyclerClick(getAdapterPosition(),userList);
         }
 
         public interface RecyclerViewClickListener{
 
-            void onRecyclerClick(int position);
+            void onRecyclerClick(int position,List<User> users);
+
+
         }
     }
 

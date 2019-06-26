@@ -21,7 +21,7 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainActContract.View, RecyclerviewAdapter.MyViewHolder.RecyclerViewClickListener {
 
-    private List<User> users;
+
     private RecyclerView recyclerView;
     private MainActPresenter presenter;
     @Inject
@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
         setContentView(R.layout.activity_main);
         initVariables();
         initViews();
-        presenter=new MainActPresenter(this);
-        ((DaggerApplication) getApplication()).getDaggerComponent().inject(this);
         presenter.getUserResponse();
 
     }
@@ -46,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
         recyclerView = findViewById(R.id.users_recylerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new RecyclerviewAdapter(users,this));
-        this.users=users;
 
 
     }
@@ -58,17 +55,17 @@ public class MainActivity extends AppCompatActivity implements MainActContract.V
 
 
     @Override
-    public void onRecyclerClick(int position) {
+    public void onRecyclerClick(int position,List<User> userList) {
 
         Intent intent = new Intent(MainActivity.this,MapActivity.class);
-        intent.putExtra("MyClass",users.get(position));
-
+        intent.putExtra("MyClass",userList.get(position));
         startActivity(intent);
     }
 
     @Override
     public void initVariables() {
-
+        presenter=new MainActPresenter(this);
+        ((DaggerApplication) getApplication()).getDaggerComponent().inject(this);
     }
 
     @Override

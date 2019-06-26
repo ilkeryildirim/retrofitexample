@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="top_padding">18dp</dimen>
+    <dimen name="bottom_padding">18dp</dimen>
+    <dimen name="start_padding">18dp</dimen>
+    <dimen name="end_padding">18dp</dimen>
+    <dimen name="item_padding">18dp</dimen>
+    <dimen name="textview_width">380dp</dimen>
+    <dimen name="text_size">23sp</dimen>
+
+</resources>
