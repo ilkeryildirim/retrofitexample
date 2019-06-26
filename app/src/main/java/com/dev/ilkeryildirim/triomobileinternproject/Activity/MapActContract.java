@@ -7,9 +7,11 @@ public interface MapActContract {
 
     interface View extends IBase.View {
 
+
     }
 
     interface Presenter{
+
 
 
     }

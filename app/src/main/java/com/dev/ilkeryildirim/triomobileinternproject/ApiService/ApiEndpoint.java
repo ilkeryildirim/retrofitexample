@@ -11,5 +11,4 @@ public interface ApiEndpoint {
     @GET("users")
     Call<List<User>> getUsers();
 
-
 }

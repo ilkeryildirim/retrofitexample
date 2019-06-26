@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.MapActivity">
+
+    <TextView
+        android:id="@+id/map_user_fullnameTv"
+        android:layout_width="@dimen/textview_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="@dimen/end_padding"
+        android:layout_marginBottom="@dimen/bottom_padding"
+        android:text="@string/user_full_name"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toTopOf="@+id/map_user_nameTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toEndOf="@+id/map"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/map_user_nameTv"
+        android:layout_width="@dimen/textview_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map_user_fullnameTv"
+        android:layout_alignStart="@+id/map_user_fullnameTv"
+        android:layout_alignEnd="@+id/map_user_fullnameTv"
+        android:layout_marginStart="@dimen/start_padding"
+        android:layout_marginEnd="@dimen/end_padding"
+        android:layout_marginBottom="16dp"
+        android:text="@string/user_name"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/map_usermailTv"
+        app:layout_constraintEnd_toEndOf="@+id/map_user_fullnameTv"
+        app:layout_constraintStart_toStartOf="@+id/map_user_fullnameTv" />
+
+    <TextView
+        android:id="@+id/map_usermailTv"
+        android:layout_width="@dimen/textview_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map_user_nameTv"
+        android:layout_alignStart="@+id/map_user_nameTv"
+        android:layout_alignEnd="@+id/map_user_nameTv"
+        android:layout_marginStart="@dimen/start_padding"
+        android:layout_marginEnd="@dimen/end_padding"
+        android:layout_marginBottom="76dp"
+        android:text="@string/user_mail"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toTopOf="@+id/adressText"
+        app:layout_constraintEnd_toEndOf="@+id/map_user_nameTv"
+        app:layout_constraintStart_toStartOf="@+id/map_user_nameTv" />
+
+    <TextView
+        android:id="@+id/adressText"
+        android:layout_width="@dimen/textview_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map_usermailTv"
+        android:layout_alignStart="@+id/map_usermailTv"
+        android:layout_alignEnd="@+id/map_usermailTv"
+        android:layout_marginStart="@dimen/start_padding"
+        android:layout_marginEnd="@dimen/end_padding"
+        android:layout_marginBottom="24dp"
+        android:text="@string/adress_text"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/map_streetTv"
+        app:layout_constraintEnd_toEndOf="@+id/map_usermailTv"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="@+id/map_usermailTv" />
+
+    <TextView
+        android:id="@+id/map_streetTv"
+        android:layout_width="@dimen/textview_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adressText"
+        android:layout_alignStart="@+id/adressText"
+        android:layout_alignEnd="@+id/adressText"
+        android:layout_marginStart="@dimen/start_padding"
+        android:layout_marginEnd="@dimen/end_padding"
+        android:layout_marginBottom="20dp"
+        android:text="@string/user_street"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toTopOf="@+id/map_suiteTv"
+        app:layout_constraintEnd_toEndOf="@+id/adressText"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="@+id/adressText" />
+
+    <TextView
+        android:id="@+id/map_suiteTv"
+        android:layout_width="@dimen/textview_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map_streetTv"
+        android:layout_alignStart="@+id/map_streetTv"
+        android:layout_alignEnd="@+id/map_streetTv"
+        android:layout_marginStart="@dimen/start_padding"
+        android:layout_marginEnd="@dimen/end_padding"
+        android:layout_marginBottom="12dp"
+        android:text="@string/user_suite"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toTopOf="@+id/map_cityTv"
+        app:layout_constraintEnd_toEndOf="@+id/map_streetTv"
+        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintStart_toStartOf="@+id/map_streetTv" />
+
+    <TextView
+        android:id="@+id/map_cityTv"
+        android:layout_width="@dimen/textview_width"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/map_suiteTv"
+        android:layout_alignTop="@+id/map_suiteTv"
+        android:layout_alignEnd="@+id/map_suiteTv"
+        android:layout_marginStart="@dimen/start_padding"
+        android:layout_marginEnd="@dimen/end_padding"
+        android:layout_marginBottom="8dp"
+        android:text="@string/user_city"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/map_suiteTv"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="@+id/map_suiteTv" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="376dp"
+        android:layout_height="440dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.433" />
+
+</android.support.constraint.ConstraintLayout>

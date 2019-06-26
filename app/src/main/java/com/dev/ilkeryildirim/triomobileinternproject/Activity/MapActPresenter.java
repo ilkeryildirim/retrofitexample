@@ -11,6 +11,4 @@ public class MapActPresenter implements MapActContract.Presenter {
         this.view = view;
     }
 
-
-
 }
