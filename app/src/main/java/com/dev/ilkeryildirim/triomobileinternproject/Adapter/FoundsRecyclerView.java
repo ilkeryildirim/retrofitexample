@@ -85,7 +85,7 @@ public class FoundsRecyclerView extends RecyclerView.Adapter<FoundsRecyclerView.
 
             holder.progressBar.setMax(100);
             holder.progressBar.setProgress(50);
-            System.out.println("asdddddddddddddddddddddddd");
+
 
 
     }

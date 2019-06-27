@@ -19,5 +19,6 @@
     <string name="profile_Founded">Toplanan</string>
     <string name="profile_Founders">Katılan Kişi</string>
     <string name="profile_Goal">Hedef</string>
-    <string name="profile_Profile">Profil</string>
+    <string name="profile_Profile">PROFİL</string>
+    <string name="profile_Years">Yıl</string>
 </resources>
