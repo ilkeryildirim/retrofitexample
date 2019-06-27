@@ -10,5 +10,6 @@
     <string name="user_suite">Suite :</string>
     <string name="user_street">Street :</string>
     <string name="adress_text">Address</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 </resources>

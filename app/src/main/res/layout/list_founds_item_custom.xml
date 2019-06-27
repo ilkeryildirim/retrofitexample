@@ -1,62 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/found_imageView"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        app:cardCornerRadius="5dip"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
+        app:layout_constraintVertical_bias="0.328">
 
-    <ProgressBar
-        android:id="@+id/found_progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:max="100"
-        android:progress="100"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/found_imageView"
-        tools:layout_editor_absoluteY="117dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/found_nameTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/actor"
-        android:text="School For Childs"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/found_imageView"
-        tools:layout_editor_absoluteY="16dp" />
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:max="10"
+                android:progress="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/found_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/foundedText" />
 
-    <TextView
-        android:id="@+id/found_explainTextView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Found explain text"
-        app:layout_constraintBottom_toTopOf="@+id/found_progressBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/found_nameTextView"
-        app:layout_constraintTop_toBottomOf="@+id/found_nameTextView" />
-</android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/foundedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Founded"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@+id/item_found_totalTextView"
+                app:layout_constraintTop_toBottomOf="@+id/item_founderCountTextview" />
+
+            <TextView
+                android:id="@+id/goalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Goal"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/item_foundGoalTextView"
+                app:layout_constraintTop_toBottomOf="@+id/item_founderCountTextview" />
+
+            <TextView
+                android:id="@+id/item_foundGoalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:fontFamily="@font/cuprum"
+                android:text="$20,000"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/foundedText"
+                app:layout_constraintTop_toBottomOf="@+id/item_found_explainTextView" />
+
+            <TextView
+                android:id="@+id/item_found_totalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:fontFamily="@font/cuprum"
+                android:text="$1,152"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/foundersText"
+                app:layout_constraintTop_toBottomOf="@+id/item_found_explainTextView" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/found_imageView"
+                android:layout_width="117dp"
+                android:layout_height="121dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@color/colorOrange"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="10dip" />
+
+            <TextView
+                android:id="@+id/item_found_nameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/actor"
+                android:text="School For Childs"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/foundedIconImageView"
+                app:layout_constraintStart_toEndOf="@+id/found_imageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_found_explainTextView"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Found explain text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/found_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/item_found_nameTextView" />
+
+            <TextView
+                android:id="@+id/item_founderCountTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/cuprum"
+                android:text="115"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/found_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/item_found_explainTextView" />
+
+            <TextView
+                android:id="@+id/foundersText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Founders"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/found_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/item_founderCountTextview" />
+
+            <ImageView
+                android:id="@+id/foundedIconImageView"
+                android:layout_width="61dp"
+                android:layout_height="33dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/founded" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

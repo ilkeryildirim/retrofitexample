@@ -3,5 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/actor</item>
         <item>@font/cuprum</item>
+        <item>@font/krona_one</item>
+        <item>@font/molengo</item>
     </array>
 </resources>
