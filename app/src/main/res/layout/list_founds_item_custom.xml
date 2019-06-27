@@ -37,14 +37,16 @@
                 android:progress="2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/found_imageView"
-                app:layout_constraintTop_toBottomOf="@+id/foundedText" />
+                app:layout_constraintTop_toBottomOf="@+id/foundedText"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/foundedText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Founded"
+                android:text="@string/profile_Founded"
                 android:textSize="10sp"
                 app:layout_constraintStart_toStartOf="@+id/item_found_totalTextView"
                 app:layout_constraintTop_toBottomOf="@+id/item_founderCountTextview" />
@@ -54,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="Goal"
+                android:text="@string/profile_Goal"
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -93,7 +95,8 @@
                 android:layout_height="121dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:src="@color/colorOrange"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:riv_corner_radius="10dip" />
@@ -144,7 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Founders"
+                android:text="@string/profile_Founders"
                 android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/found_imageView"
                 app:layout_constraintTop_toBottomOf="@+id/item_founderCountTextview" />

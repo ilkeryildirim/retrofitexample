@@ -17,7 +17,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:layout_height="164dp"
+        android:layout_height="148dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -37,14 +37,15 @@
                 android:layout_height="120dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="19dp"
-                android:src="@color/colorOrange"
-                app:riv_corner_radius="10dip"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
 
+                android:src="@drawable/photo1"
+                app:riv_corner_radius="10dip"
                 tools:layout_editor_absoluteX="86dp"
-                tools:layout_editor_absoluteY="92dp"
-                 />
+                tools:layout_editor_absoluteY="92dp" />
 
             <ImageView
                 android:id="@+id/imageView7"
@@ -68,7 +69,8 @@
                 android:layout_marginTop="1dp"
                 android:layout_toEndOf="@+id/userPhotoImageView"
                 android:fontFamily="@font/cuprum"
-                android:text="User Name"
+                android:text="Frances Gutierrez"
+                android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/userPhotoImageView"
@@ -109,7 +111,7 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/cuprum"
-                android:text="Volunteer"
+                android:text="@string/profile_Volunteer"
                 app:layout_constraintStart_toStartOf="@+id/profile_userNameTextView"
                 app:layout_constraintTop_toBottomOf="@+id/profile_userNameTextView" />
 
@@ -126,21 +128,17 @@
                 tools:layout_editor_absoluteX="206dp"
                 tools:layout_editor_absoluteY="80dp" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="71dp"
-                android:layout_height="58dp"
-                android:layout_alignParentTop="true"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="29dp"
-                android:layout_marginTop="70dp"
-                android:layout_marginEnd="21dp"
-                android:layout_marginBottom="36dp"
-                android:layout_toEndOf="@+id/imageView4"
-                android:background="@drawable/heartbutton"
-                android:text=""
-                android:visibility="invisible" />
+                android:layout_marginEnd="31dp"
+                android:layout_marginBottom="23dp"
+                app:maxImageSize="52dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/heartbutton" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -169,7 +167,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginBottom="8dp"
                 android:layout_toEndOf="@+id/textView"
-                android:text="Post Causes"
+                android:text="@string/profile_PostCauses"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView4"
                 app:layout_constraintStart_toStartOf="@+id/textView4"
@@ -185,7 +183,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="8dp"
                 android:layout_toEndOf="@+id/textView4"
-                android:text="Dollar Donate"
+                android:text="@string/profile_DollarDonate"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView5"
                 app:layout_constraintStart_toStartOf="@+id/textView5"
@@ -201,7 +199,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
                 android:layout_marginBottom="8dp"
-                android:text="Volunteer"
+                android:text="@string/profile_Volunteer"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView"
                 app:layout_constraintStart_toStartOf="@+id/textView"
@@ -271,12 +269,31 @@
         android:id="@+id/found_recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/molengo"
+        android:text="PROFILE"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="@+id/profile_app_bar"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/profile_app_bar"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

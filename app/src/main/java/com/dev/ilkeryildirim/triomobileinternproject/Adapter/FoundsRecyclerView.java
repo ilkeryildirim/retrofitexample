@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.dev.ilkeryildirim.triomobileinternproject.Model.CustomData;
@@ -31,7 +33,9 @@ public class FoundsRecyclerView extends RecyclerView.Adapter<FoundsRecyclerView.
         @BindView(R.id.item_foundGoalTextView) TextView foundGoal;
         @BindView(R.id.item_found_totalTextView) TextView foundTotal;
         @BindView(R.id.item_founderCountTextview) TextView founderCount;
-       // @BindView(R.id.progressBar) ProgressBar progressBar;
+        @BindView(R.id.progressBar2) ProgressBar progressBar;
+        @BindView(R.id.foundedIconImageView) ImageView foundedIcon;
+        @BindView(R.id.found_imageView) ImageView foundImage;
 
         RecyclerViewClickListener recyclerViewClickListener;
         public MyViewHolder(View view,RecyclerViewClickListener recyclerViewClickListener) {
@@ -73,11 +77,16 @@ public class FoundsRecyclerView extends RecyclerView.Adapter<FoundsRecyclerView.
         holder.foundExplainText.setText(c.getFoundExplainText());
         holder.foundGoal.setText(String.valueOf(c.getFoundGoal()));
         holder.foundTotal.setText(String.valueOf(c.getFoundTotal()));
-/*
+        holder.foundImage.setImageResource(c.getFoundPhotoID());
+        if(c.getFoundGoal()<=c.getFoundTotal())
+        {
+            holder.foundedIcon.setVisibility(View.VISIBLE);
+        }
+
             holder.progressBar.setMax(100);
             holder.progressBar.setProgress(50);
             System.out.println("asdddddddddddddddddddddddd");
-*/
+
 
     }
 

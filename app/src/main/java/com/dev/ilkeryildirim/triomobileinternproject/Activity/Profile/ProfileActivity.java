@@ -47,8 +47,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileActivit
         foundsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         foundsRecyclerView.setAdapter(new FoundsRecyclerView(founds,this));
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle("Profile");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
@@ -63,39 +62,39 @@ public class ProfileActivity extends AppCompatActivity implements ProfileActivit
         founds.add(new CustomData("Bus station for town",
                 "We need your help for a new school",
                 3,
-                2100,
-                50000,
-                R.drawable.facebookicon));
+                21000,
+                10000,
+                R.drawable.photo4));
         founds.add(new CustomData("School for childrens",
                 "We need your help for a new school We need your help for a new school",
                 4,
                 1250,
                 25000,
-                R.drawable.facebookicon));
+                R.drawable.photo3));
         founds.add(new CustomData("School for childrens",
                 "We need your help for a new school",
                 3,
-                4140,
-                29000,
-                R.drawable.facebookicon));
+                40140,
+                9000,
+                R.drawable.photo2));
         founds.add(new CustomData("School for childrens",
                 "We need your help for a new school",
                 5,
                 9000,
                 50000,
-                R.drawable.facebookicon));
+                R.drawable.photo3));
         founds.add(new CustomData("School for childrens",
                 "We need your help for a new school",
                 9,
                 15000,
                 50000,
-                R.drawable.facebookicon));
+                R.drawable.photo4));
         founds.add(new CustomData("School for childrens",
                 "We need your help for a new schoolWe need your help for a new schoolWe need your help for a new school",
                 3,
                 2100,
                 50000,
-                R.drawable.facebookicon));
+                R.drawable.photo4));
 
 
     }

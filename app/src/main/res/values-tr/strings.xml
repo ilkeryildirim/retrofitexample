@@ -11,4 +11,13 @@
     <string name="user_street"></string>
     <string name="adress_text">Adres</string>
 
+
+    <string name="profile_Volunteer">Gönüllü</string>
+    <string name="profile_UserName">Kullanıcı Adı</string>
+    <string name="profile_PostCauses">Kampanyalar</string>
+    <string name="profile_DollarDonate">Dolar Bağışı</string>
+    <string name="profile_Founded">Toplanan</string>
+    <string name="profile_Founders">Katılan Kişi</string>
+    <string name="profile_Goal">Hedef</string>
+    <string name="profile_Profile">Profil</string>
 </resources>
